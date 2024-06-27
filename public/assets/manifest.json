@@ -1,0 +1,13 @@
+{
+  "name": "Dragonaere Network",
+  "short_name": "Dragonaere",
+  "description": "Dragonaere Network",
+  "dir": "auto",
+  "lang": "en-US",
+  
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}

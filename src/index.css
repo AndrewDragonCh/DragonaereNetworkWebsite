@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255,255,255;
+  --background-rgb: 0, 0, 0;
+}
+
+@layer base {
+  h1 {
+    font-family: 'Macondo', system-ui;
+  }
+  html {
+    font-family: 'Noto Sans Display', system-ui;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  position: relative;
+  z-index: 0;
+}
