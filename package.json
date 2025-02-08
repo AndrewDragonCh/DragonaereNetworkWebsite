@@ -35,7 +35,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "tailwindcss": "4.0.4",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7"
+    "vite": "^6.0.9"
   },
   "overrides": {
     "@types/react": "npm:types-react@rc",
