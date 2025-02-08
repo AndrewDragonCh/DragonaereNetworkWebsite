@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@9.4.0",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
@@ -15,7 +14,7 @@
   },
   "engines": {
     "node": ">=22",
-    "pnpm": ">=9"
+    "pnpm": ">=10"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.4",
@@ -41,5 +40,6 @@
   "overrides": {
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc"
-  }
+  },
+  "packageManager": "pnpm@10.2.1"
 }
