@@ -8,20 +8,24 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "dev:worker": "wrangler dev",
+    "deploy:dev": "wrangler deploy --env development",
+    "deploy:prod": "wrangler deploy --env production"
   },
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.4",
     "plausible-tracker": "^0.3.9",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
     "@typescript-eslint/parser": "^8.19.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -30,10 +34,7 @@
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "types-react": "19.0.0-rc.1",
-    "types-react-dom": "19.0.0-rc.1",
+    "tailwindcss": "4.0.4",
     "typescript": "^5.7.2",
     "vite": "^6.0.7"
   },
