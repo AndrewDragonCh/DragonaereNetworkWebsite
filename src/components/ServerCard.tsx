@@ -34,18 +34,18 @@ function ServerCard({ width }: { width: string }) {
           </div>
           <div id='Players Online' className="relative w-full bg-gray-500 rounded-full xl:h-12 md:h-10 h-7 overflow-hidden xl:mt-4 xl:mb-2 md:mt-2 md:mb-1 mt-1 mb-0.5">
             {serverStatus ? (
-              serverStatus.online === false ? (
+              !serverStatus ? (
                 <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
                   Server is offline!
                 </span>
               ) : serverStatus.players ? (
                 <>
                   <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
-                    {serverStatus.players.online} / {serverStatus.players.max} players online
+                    {serverStatus.numplayers} / {serverStatus.maxplayers} players online
                   </span>
                   <div
                     className="bg-gray-900 h-6 rounded-full"
-                    style={{ width: `${(serverStatus.players.online / serverStatus.players.max) * 100}%` }}
+                    style={{ width: `${(serverStatus.numplayers / serverStatus.maxplayers) * 100}%` }}
                   ></div>
                 </>
               ) : (
