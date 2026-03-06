@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import useServerStatus from "../hooks/useServerStatus";
-import { trackEvent } from '../App';
+// import useServerStatus from "../hooks/useServerStatus";
 
 function ServerCard({ width }: { width: string }) {
-  const serverStatus = useServerStatus();
+  // const serverStatus = useServerStatus();
+
+  const serverStatus = null;
 
   const [copySuccess, setCopySuccess] = useState('Click to copy');
 
@@ -26,7 +27,7 @@ function ServerCard({ width }: { width: string }) {
           }}
           className="cursor-pointer relative text-center w-full p-3 border-2 shadow-lg rounded-3xl plausible-event-name=Copied+IP"
           onMouseDown={() => {
-            trackEvent('Copied IP');
+
           }}
         >
           <div id='IP' className="text-center mb-2 xl:text-2xl md:text-xl text-base text-white">
@@ -38,16 +39,16 @@ function ServerCard({ width }: { width: string }) {
                 <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
                   Server is offline!
                 </span>
-              ) : serverStatus.players ? (
-                <>
-                  <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
-                    {serverStatus.numplayers} / {serverStatus.maxplayers} players online
-                  </span>
-                  <div
-                    className="bg-gray-900 h-6 rounded-full"
-                    style={{ width: `${(serverStatus.numplayers / serverStatus.maxplayers) * 100}%` }}
-                  ></div>
-                </>
+              // ) : serverStatus.players ? (
+              //   <>
+              //     <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
+              //       {serverStatus.numplayers} / {serverStatus.maxplayers} players online
+              //     </span>
+              //     <div
+              //       className="bg-gray-900 h-6 rounded-full"
+              //       style={{ width: `${(serverStatus.numplayers / serverStatus.maxplayers) * 100}%` }}
+              //     ></div>
+              //   </>
               ) : (
                 <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">Loading...</span>
               )

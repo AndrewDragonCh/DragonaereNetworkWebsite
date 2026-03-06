@@ -1,18 +1,7 @@
 import BackgroundImage from './components/BackgroundImage';
 import ServerCard from './components/ServerCard';
-import Plausible from 'plausible-tracker'
-
-const { trackEvent, enableAutoPageviews, enableAutoOutboundTracking } = Plausible({
-  domain: 'dragonaere.net',
-  apiHost: 'https://plausible.andrewstill.moe'
-})
-
-const cleanup1 = enableAutoPageviews()
-const cleanup2 = enableAutoOutboundTracking()
 
 function App() {
-  cleanup1()
-  cleanup2()
   return (
     <main className='flex flex-col items-center justify-center w-screen h-screen'>
       <BackgroundImage />
@@ -22,5 +11,4 @@ function App() {
   );
 }
 
-export { trackEvent };
 export default App;
