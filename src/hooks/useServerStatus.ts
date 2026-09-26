@@ -1,20 +1,24 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import ServerStatus from "../types/ServerStatus";
 
-// export default function useServerStatus() {
-//   const [serverStatus, setServerStatus] = useState<QueryResult | null>(null);
+export default function useServerStatus() {
+  const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
 
-//   useEffect(() => {
-//     const fetchServerStatus = async () => {
-//       const response = await GameDig.query({ type: 'minecraft', host: 'mc.hypixel.net' });
-//       setServerStatus(response);
-//     };
+  useEffect(() => {
+    const fetchServerStatus = async () => {
+      const response = await fetch('https://api.dragonaere.net/play.dragonaere.net');
+      const data = await response.json();
+      setServerStatus(data);
+    };
+  
+    fetchServerStatus();
+    
+    const interval = setInterval(() => {
+      fetchServerStatus();
+    }, 10000);
 
-//     const interval = setInterval(() => {
-//       fetchServerStatus();
-//     }, 10000);
+    return () => clearInterval(interval);
+  }, []) ;
 
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return serverStatus;
-// }
+  return serverStatus;
+}

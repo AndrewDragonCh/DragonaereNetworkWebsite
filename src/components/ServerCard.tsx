@@ -1,10 +1,8 @@
 import { useState } from 'react';
-// import useServerStatus from "../hooks/useServerStatus";
+import useServerStatus from "../hooks/useServerStatus";
 
 function ServerCard({ width }: { width: string }) {
-  // const serverStatus = useServerStatus();
-
-  const serverStatus = null;
+  const serverStatus = useServerStatus();
 
   const [copySuccess, setCopySuccess] = useState('Click to copy');
 
@@ -35,20 +33,17 @@ function ServerCard({ width }: { width: string }) {
           </div>
           <div id='Players Online' className="relative w-full bg-gray-500 rounded-full xl:h-12 md:h-10 h-7 overflow-hidden xl:mt-4 xl:mb-2 md:mt-2 md:mb-1 mt-1 mb-0.5">
             {serverStatus ? (
-              !serverStatus ? (
+              serverStatus.online === false ? (
                 <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
                   Server is offline!
                 </span>
-              // ) : serverStatus.players ? (
-              //   <>
-              //     <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
-              //       {serverStatus.numplayers} / {serverStatus.maxplayers} players online
-              //     </span>
-              //     <div
-              //       className="bg-gray-900 h-6 rounded-full"
-              //       style={{ width: `${(serverStatus.numplayers / serverStatus.maxplayers) * 100}%` }}
-              //     ></div>
-              //   </>
+              ) : serverStatus.players ? (
+                <>
+                  <div className="absolute inset-y-0 left-0 bg-gray-700 rounded-full" style={{ width: `${Math.min(100, (serverStatus.players.online / serverStatus.players.max) * 100 )}%`, }} />
+                  <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">
+                    {serverStatus.players.online} / {serverStatus.players.max} players online
+                  </span>
+                </>
               ) : (
                 <span className="relative xl:text-lg md:text-base text-xs text-white whitespace-nowrap xl:-bottom-[.5rem] md:-bottom-[.4rem]">Loading...</span>
               )
